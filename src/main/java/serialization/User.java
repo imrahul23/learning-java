@@ -1,10 +1,15 @@
-package serialization.java;
+package serialization;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 
 public class User implements Serializable {
     private String name;
     private Long id;
+
+    //Jackson serializes transient fields too so we need this annotation
+    @JsonIgnore
     transient private Integer age;
     private static String key;
 
